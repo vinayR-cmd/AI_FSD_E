@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 function MatchForm({ setMatchResults }) {
   const [form, setForm] = useState({ requiredSkills: '', minExperience: '', preferredSkills: '' });
@@ -16,7 +17,7 @@ function MatchForm({ setMatchResults }) {
         minExperience: Number(form.minExperience) || 0,
         preferredSkills: form.preferredSkills.split(',').map(s => s.trim()).filter(Boolean)
       };
-      const res = await axios.post('http://localhost:5000/api/match', payload);
+      const res = await axios.post(`${BASE_URL}/api/match`, payload);
       setMatchResults(res.data);
     } catch (err) {
       setError(err.response?.data?.error || 'Error matching candidates');
@@ -38,7 +39,7 @@ function MatchForm({ setMatchResults }) {
           <input type="number" placeholder="e.g. 1" value={form.minExperience} onChange={e => setForm({...form, minExperience: e.target.value})} min="0" />
         </div>
         <div className="form-group">
-          <label>Preferred Skills (optional, comma separated)</label>
+          <label>Preferred Skills (optional)</label>
           <input type="text" placeholder="e.g. AWS, Docker" value={form.preferredSkills} onChange={e => setForm({...form, preferredSkills: e.target.value})} />
         </div>
         <button type="submit" className="btn-primary" disabled={loading}>

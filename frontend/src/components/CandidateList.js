@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 function CandidateList({ refresh }) {
   const [candidates, setCandidates] = useState([]);
@@ -9,7 +10,7 @@ function CandidateList({ refresh }) {
   const fetchCandidates = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:5000/api/candidates');
+      const res = await axios.get(`${BASE_URL}/api/candidates`);
       setCandidates(res.data);
     } catch (err) {
       console.error(err);
@@ -22,7 +23,7 @@ function CandidateList({ refresh }) {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this candidate?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/candidates/${id}`);
+      await axios.delete(`${BASE_URL}/api/candidates/${id}`);
       fetchCandidates();
     } catch (err) {
       console.error(err);

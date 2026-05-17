@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 function CandidateForm({ onAdded }) {
   const [form, setForm] = useState({ name: '', email: '', skills: '', experience: '', bio: '' });
@@ -11,7 +12,7 @@ function CandidateForm({ onAdded }) {
     setLoading(true);
     try {
       const skillsArray = form.skills.split(',').map(s => s.trim()).filter(Boolean);
-      await axios.post('http://localhost:5000/api/candidates', {
+      await axios.post(`${BASE_URL}/api/candidates`, {
         ...form,
         skills: skillsArray,
         experience: Number(form.experience)
@@ -48,7 +49,7 @@ function CandidateForm({ onAdded }) {
         </div>
         <div className="form-group">
           <label>Bio / Projects (optional)</label>
-          <textarea placeholder="Brief description of projects or background..." value={form.bio} onChange={e => setForm({...form, bio: e.target.value})} rows={3} />
+          <textarea placeholder="Brief description..." value={form.bio} onChange={e => setForm({...form, bio: e.target.value})} rows={3} />
         </div>
         <button type="submit" className="btn-primary" disabled={loading}>
           {loading ? 'Adding...' : 'Add Candidate'}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 function AIMatch() {
   const [form, setForm] = useState({ requiredSkills: '', minExperience: '', preferredSkills: '', jobDescription: '' });
@@ -19,7 +20,7 @@ function AIMatch() {
         preferredSkills: form.preferredSkills.split(',').map(s => s.trim()).filter(Boolean),
         jobDescription: form.jobDescription
       };
-      const res = await axios.post('http://localhost:5000/api/ai/shortlist', payload);
+      const res = await axios.post(`${BASE_URL}/api/ai/shortlist`, payload);
       setResults(res.data);
     } catch (err) {
       setError(err.response?.data?.error || 'AI matching failed. Check your OpenRouter API key.');
@@ -37,7 +38,7 @@ function AIMatch() {
     <div>
       <div className="card">
         <h2>AI-Powered Candidate Matching</h2>
-        <p style={{color:'#666', marginBottom:'20px', fontSize:'0.9rem'}}>Uses OpenRouter AI to intelligently rank candidates beyond simple keyword matching</p>
+        <p style={{color:'#666', marginBottom:'20px', fontSize:'0.9rem'}}>Uses OpenRouter AI to intelligently rank candidates</p>
         {error && <div className="error-msg">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -50,11 +51,11 @@ function AIMatch() {
           </div>
           <div className="form-group">
             <label>Preferred Skills (optional)</label>
-            <input type="text" placeholder="e.g. AWS, Docker, TypeScript" value={form.preferredSkills} onChange={e => setForm({...form, preferredSkills: e.target.value})} />
+            <input type="text" placeholder="e.g. AWS, Docker" value={form.preferredSkills} onChange={e => setForm({...form, preferredSkills: e.target.value})} />
           </div>
           <div className="form-group">
             <label>Job Description (optional)</label>
-            <textarea placeholder="Describe the role, responsibilities, team culture..." value={form.jobDescription} onChange={e => setForm({...form, jobDescription: e.target.value})} rows={3} />
+            <textarea placeholder="Describe the role..." value={form.jobDescription} onChange={e => setForm({...form, jobDescription: e.target.value})} rows={3} />
           </div>
           <button type="submit" className="btn-primary" disabled={loading}>
             {loading ? 'AI is analyzing candidates...' : 'Run AI Matching'}
