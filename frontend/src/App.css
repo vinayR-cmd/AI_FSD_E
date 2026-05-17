@@ -1,0 +1,50 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
+.app { min-height: 100vh; }
+.header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px 20px; text-align: center; }
+.header h1 { font-size: 2rem; margin-bottom: 8px; }
+.header p { opacity: 0.85; font-size: 1rem; }
+.nav { display: flex; justify-content: center; gap: 10px; background: white; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.nav button { padding: 10px 24px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 25px; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: all 0.2s; }
+.nav button:hover, .nav button.active { background: #667eea; color: white; }
+.main { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+.card { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.card h2 { margin-bottom: 20px; color: #444; font-size: 1.4rem; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 600; color: #555; font-size: 0.9rem; }
+.form-group input, .form-group textarea { width: 100%; padding: 10px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 0.95rem; transition: border 0.2s; outline: none; }
+.form-group input:focus, .form-group textarea:focus { border-color: #667eea; }
+.btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 8px; transition: opacity 0.2s; }
+.btn-primary:hover { opacity: 0.9; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.success-msg { background: #e8f5e9; color: #2e7d32; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; }
+.error-msg { background: #ffebee; color: #c62828; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; }
+.search-input { width: 100%; padding: 10px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 0.95rem; margin-bottom: 20px; outline: none; }
+.search-input:focus { border-color: #667eea; }
+.candidate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.candidate-card { border: 1.5px solid #eee; border-radius: 10px; padding: 18px; transition: box-shadow 0.2s; }
+.candidate-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.candidate-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.candidate-header h3 { font-size: 1.05rem; color: #333; }
+.btn-delete { background: #ffebee; color: #c62828; border: none; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+.email { color: #666; font-size: 0.85rem; margin-bottom: 4px; }
+.experience { color: #764ba2; font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
+.bio { color: #777; font-size: 0.85rem; margin-top: 8px; font-style: italic; }
+.skills-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag { background: #ede7f6; color: #512da8; padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 600; }
+.skill-tag.matched { background: #e8f5e9; color: #2e7d32; }
+.results-list { display: flex; flex-direction: column; gap: 14px; }
+.result-card { border: 1.5px solid #eee; border-radius: 10px; padding: 18px; }
+.result-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.rank { background: linear-gradient(135deg, #667eea, #764ba2); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+.result-info { flex: 1; }
+.result-info h3 { font-size: 1.05rem; margin-bottom: 2px; }
+.result-info p { color: #666; font-size: 0.85rem; }
+.result-score { text-align: right; }
+.score-number { font-size: 1.4rem; font-weight: 700; color: #667eea; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; margin-top: 4px; }
+.badge-high { background: #e8f5e9; color: #2e7d32; }
+.badge-medium { background: #fff8e1; color: #f57f17; }
+.badge-low { background: #ffebee; color: #c62828; }
+.skills-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.label { font-size: 0.8rem; font-weight: 600; color: #888; margin-right: 4px; }
