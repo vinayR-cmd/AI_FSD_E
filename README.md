@@ -1,12 +1,13 @@
-# Candidate Shortlisting System
+# Employee Performance Analytics System
 
 ## Tech Stack
-- Frontend: React.js
-- Backend: Node.js + Express.js
+- Frontend: React.js (Vercel)
+- Backend: Node.js + Express.js (Render)
 - Database: MongoDB Atlas
 - AI: OpenRouter API (GPT-4o-mini)
+- Auth: JWT + bcryptjs
 
-## How to Run
+## Local Setup
 
 ### Backend
 cd backend
@@ -18,15 +19,12 @@ cd frontend
 npm install
 npm start
 
-## Features
-- Add, view, delete candidates
-- Basic skill-based matching with score
-- AI-powered ranking with strengths, gaps and interview questions
-- Search and filter candidates
-
 ## API Endpoints
-- POST /api/candidates - Add candidate
-- GET /api/candidates - Get all candidates
-- DELETE /api/candidates/:id - Delete candidate
-- POST /api/match - Basic skill matching
-- POST /api/ai/shortlist - AI-powered matching
+- POST /api/auth/signup
+- POST /api/auth/login
+- POST /api/employees
+- GET /api/employees
+- GET /api/employees/search?department=Development
+- PUT /api/employees/:id
+- DELETE /api/employees/:id
+- POST /api/ai/recommend
