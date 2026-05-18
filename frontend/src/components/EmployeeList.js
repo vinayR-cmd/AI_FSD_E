@@ -28,6 +28,7 @@ function EmployeeList({ refresh }) {
     setLoading(false);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchEmployees(); }, [refresh]);
 
   const handleSearch = (e) => { e.preventDefault(); fetchEmployees(); };
